@@ -75,7 +75,6 @@ class KNUCKLESLIVELINK_API FKnucklesLiveLinkSource : public ILiveLinkSource
 public:
 
 	FKnucklesLiveLinkSource();
-
 	virtual ~FKnucklesLiveLinkSource();
 
 	// Begin ILiveLinkSource Interface
@@ -134,9 +133,6 @@ private:
 	TArray<FName> BoneNames;
 	TArray<int32> BoneParents;
 
-	VRBoneTransform_t vrBoneTransformLeft[BoneCount];
-	VRBoneTransform_t vrBoneTransformRight[BoneCount];
-
 	// SteamVR Input System
 	VRActionSetHandle_t SteamVRActionSetDefault;
 
@@ -146,6 +142,7 @@ private:
 	VRInputValueHandle_t SteamActiveOriginLeft;
 	VRInputValueHandle_t SteamActiveOriginRight;
 
+	EVRSkeletalTrackingLevel vrSkeletalTrackingLevel;
 	InputSkeletalActionData_t vrSeketalActionDataLeft = { 0 };
 	InputSkeletalActionData_t vrSeketalActionDataRight = { 0 };
 
@@ -157,6 +154,10 @@ private:
 	VRControllerState_t controllerStateRight = { 0 };
 	TrackedDevicePose_t controllerPoseRight = { 0 };
 
+	VRBoneTransform_t vrBoneTransformLeft[BoneCount];
+	VRBoneTransform_t vrBoneTransformRight[BoneCount];
+
 	void GetInputError(EVRInputError InputError, FString InputAction);
+	void CheckForSkeletalController();
 	FTransform GetUEBoneTransform(VRBoneTransform_t SteamBoneTransform, FVector OverrideVector = FVector::ZeroVector, bool bOverrideVector = false);
 };
