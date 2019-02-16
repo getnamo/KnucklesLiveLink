@@ -787,7 +787,7 @@ private:
 			case vr::TrackedDeviceClass_TrackingReference:
 				break;
 			default:
-				UE_LOG(LogKnucklesVRController, Warning, TEXT("Encountered unsupported device class of %i!"), (int32)DeviceClass);
+				//UE_LOG(LogKnucklesVRController, Warning, TEXT("Encountered unsupported device class of %i!"), (int32)DeviceClass);
 				break;
 			}
 		}
