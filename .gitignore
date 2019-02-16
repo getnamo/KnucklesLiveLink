@@ -26,3 +26,4 @@ Source/*/Intermediate/*
 # Cache files for the editor to use
 DerivedDataCache/*
 Binaries/*
+Binaries/Win64/UE4Editor.modules
