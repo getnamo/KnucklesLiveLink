@@ -1004,7 +1004,7 @@ private:
 			SteamVRPlugin = &FModuleManager::LoadModuleChecked<ISteamVRPlugin>(TEXT("SteamVR"));
 		}
 
-		return SteamVRPlugin->GetVRInput();
+		return vr::VRInput();
 	}
 
 	inline vr::IVRSystem* GetVRSystem() const
